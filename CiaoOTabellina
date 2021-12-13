@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Esercizio numero 2</title>
+  <style>
+    .ciao{
+      background-color: darkblue;
+      color: floralwhite;
+      border: none;
+      padding: 3px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      cursor: pointer;
+      margin: 5px 3px;
+    }
+      div {
+
+        border: 1px solid black;
+        display:inline-block;
+        height: 20px;
+        width: 125px;
+        margin: 2px;
+        padding: 2px;
+          }
+p {
+    text-align: center;
+    font-size: x-small;
+  }
+  </style>
+</head>
+<body>
+  <script>
+    function Ciao(){
+      document.getElementById("box1").innerHTML="ciao";
+      document.getElementById("box2").innerHTML="ciao";
+      document.getElementById("box3").innerHTML="ciao";
+      document.getElementById("box4").innerHTML="ciao";
+      document.getElementById("box5").innerHTML="ciao";
+      document.getElementById("box6").innerHTML="ciao";
+      document.getElementById("box7").innerHTML="ciao";
+      document.getElementById("box8").innerHTML="ciao";
+      document.getElementById("box9").innerHTML="ciao";
+      document.getElementById("box10").innerHTML="ciao";
+    }
+    function Tabellina(){
+      document.getElementById("box1").innerHTML="2";
+      document.getElementById("box2").innerHTML="4";
+      document.getElementById("box3").innerHTML="6";
+      document.getElementById("box4").innerHTML="8";
+      document.getElementById("box5").innerHTML="10";
+      document.getElementById("box6").innerHTML="12";
+      document.getElementById("box7").innerHTML="14";
+      document.getElementById("box8").innerHTML="16";
+      document.getElementById("box9").innerHTML="18";
+      document.getElementById("box10").innerHTML="20";
+    }
+  </script>
+  <div id ="box1" >Clicca un pulsante!</div>
+  <div id ="box2" >Clicca un pulsante!</div>
+  <div id ="box3" >Clicca un pulsante!</div>
+  <div id ="box4" >Clicca un pulsante!</div>
+  <div id ="box5" >Clicca un pulsante!</div>
+  <div id ="box6" >Clicca un pulsante!</div>
+  <div id ="box7" >Clicca un pulsante!</div>
+  <div id ="box8" >Clicca un pulsante!</div>
+  <div id ="box9" >Clicca un pulsante!</div>
+  <div id ="box10" >Clicca un pulsante!</div>
+  <button class="ciao" type="button" onclick="return Ciao()">Io scrivo "Ciao" in tutti i box</button>
+  <button class="ciao" type="button" onclick="return Tabellina()">Io scrivo la tabellina del 2 nei box</button>
+</body>
+</html>
