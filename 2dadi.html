@@ -11,14 +11,19 @@
 </head>
 <body>
 <script>
-function tiro(){
+    let turni=0;
+function tiro(tur){
+    turni = tur;
     var dad1 =dado1(6);
     var dad2 =dado2(6);
     document.getElementById("1").innerHTML = dad1;
     document.getElementById("2").innerHTML = dad2;
+    turni= tur+1;
     if (dad1==dad2){
-        alert("Complimenti, hai vinto!");
+        alert("Complimenti, hai vinto in "+turni+" turno!");
+        turni =0
     };
+    return turni
     };
    function dado1(n)
     {
@@ -36,7 +41,7 @@ function tiro(){
 </script>
 <p>dado 1: </p><p id="1"></p>
 <p>dado 2: </p><p id="2"></p>
-<button  onclick= "return tiro()" >Clicca qua per tirare 2 dadi</button>
+<button  onclick= "return tiro(turni)" >Clicca qua per tirare 2 dadi</button>
 
 </body>
 </html>
