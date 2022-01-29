@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicca più che puoi</title>
+<style>
+    #bigTimer{
+
+        font-size: 50px;
+        text-align: center;
+        color: rgb(209, 37, 37);
+    }
+    #Bottone{
+      width: 120px;
+      height: 120px;
+    }
+</style>
+
+</head>
+<body>
+  <body>
+    <p>clicca quante volte puoi in un tempo di 10 secondi</p>
+    <p id="bigTimer">10</p>
+<button onclick="return StartStartGame()" id="Bottone" >start</button>
+<p id="cps"></p>
+<script>
+  let clic=0;
+  let countdown = 10;
+  let cont = 0;
+  function StartStartGame(){
+  click(clic)
+  if (cont == 0){
+  setInterval(StartGame, 1000);
+  cont= cont+1;
+  setTimeout(temp,10000)
+}
+}
+  function StartGame(){ 
+    if (countdown >=1){
+      countdown = countdown-1;
+    document.getElementById("bigTimer").innerHTML = countdown;
+  }
+  };
+  function click(cloc){
+    clic = cloc+1;
+    return clic;
+  };
+  function temp(){
+    clic = Math.round(clic/10);
+    document.getElementById("cps").innerHTML = "Hai fatto "+clic+" cps!";
+  };
+</script>
+</body>
+</html>
