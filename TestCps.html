@@ -24,6 +24,7 @@
     <p>clicca quante volte puoi in un tempo di 10 secondi</p>
     <p id="bigTimer">10</p>
 <button onclick="return StartStartGame()" id="Bottone" >start</button>
+<p id="prem"></p>
 <p id="cps"></p>
 <p id="time"></p>
 <script>
@@ -32,7 +33,7 @@
   let cont = 0;
   let miotempo = 0;
   let start=Date.now();
-
+  let time =[];
   function StartStartGame(){
   click(clic)
   if (cont == 0){
@@ -52,14 +53,19 @@
   };
   function click(cloc){
     if (countdown >0){
-    miotempo=((Date.now()-start)/1000)+"s! ";
-    document.getElementById('time').innerHTML+=miotempo;
+    miotempo=((Date.now()-start)/1000);
+    document.getElementById('time').innerHTML+=miotempo+"s! ";
+    time.push(miotempo);
     clic = cloc+1;
     return clic;
     }
   };
   function temp(){
-    document.getElementById("cps").innerHTML = "Hai fatto "+clic+" click!";
+    media= ((time[0]+time[1]+time[2]+time[3]+time[4]+time[5]+time[6]+time[7]+time[8]+time[9])/10);
+    cps=clic/10;
+    document.getElementById("prem").innerHTML = "Hai fatto "+clic+" click!";
+    document.getElementById("cps").innerHTML = "Hai fatto "+cps+" cps!";
+    document.getElementById("cps").innerHTML = "La media dei tuoi primi 10 tempi è "+media;
   };
 </script>
 </body>
