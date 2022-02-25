@@ -76,7 +76,8 @@
 </style>
 </head>
 <body>
-    <p>La scopo di questo giochino è quello di premere il bottone il più velocemente possibile quando appare il verde (il bottone da premere è quello con su scritto "FIRE"). Se premerai il bottone quando non è verde perderai una vita, se arrivarai a 0 vite perderai (inizi con 3 Vite). Infine se quando comparira il verde non premerai il bottone perderai una vita, e per ogni vita persa avrai una penalità di 2 secondi.</p>
+    <p id="1"></p><p id="2"></p><p id="3"></p>
+    <p>La scopo di questo giochino è quello di premere il bottone il più velocemente possibile quando appare il verde (il bottone da premere è quello con su scritto "FIRE"). Se premerai il bottone quando non è verde perderai una vita, se arrivarai a 0 vite perderai (inizi con 3 Vite). Infine per ogni vita persa avrai una penalità di 2 secondi.</p>
     <div>
     
     <button onclick="Starter()" id="iniziatore">clicca qui per iniziare</button>
@@ -85,7 +86,6 @@
      
 </div>
 
-    
 <p id="Vite">Vite: 3</p>
 <div class="scorebox1" >
         <p id="Tentativi1" class="score"></p>
@@ -119,7 +119,7 @@
             let vecchiotent=0;
             let cont=0;
             let maggiore=0;
-            let minore=0;
+            let minore=10000;
             let click=0;
             let casuale=0;
             let lives=3;
@@ -134,7 +134,7 @@
                 clearInterval(Cambiacolore)
                 document.getElementById("Migliore").innerHTML="Il tuo tempo migliore è stato "+minore;
                 document.getElementById("Peggiore").innerHTML="Il tuo tempo peggiore è stato "+maggiore;
-                cont=((tempi[0]+tempi[1]+tempi[2]+tempi[3]+tempi[4]+tempi[5]+tempi[6]+tempi[7]+tempi[8]+tempi[9]+(3-lives)+2000)/(10+3-lives));
+                cont=((tempi[0]+tempi[1]+tempi[2]+tempi[3]+tempi[4]+tempi[5]+tempi[6]+tempi[7]+tempi[8]+tempi[9]+(3-lives)*2000)/10);
                 document.getElementById("Media").innerHTML="La tua media dei tempi è stata "+cont+" ms";
             }
             function Starter(){
@@ -144,38 +144,12 @@
             }
             }
             function Cambiacolore(){
-                if(Ulttemp==0 && tentativi>0 && lives>-1 && casuale==2){
-                lives=lives-1;
-                document.getElementById("Vite").innerHTML="Vite: "+lives;
-                if(lives==0){
-                    document.getElementById("Tentativi1").innerHTML ="Hai perso!";
-                    document.getElementById("Tentativi2").innerHTML ="Hai perso!";
-                    document.getElementById("Tentativi3").innerHTML ="Hai perso!";
-                    document.getElementById("Tentativi4").innerHTML ="Hai perso!";
-                    document.getElementById("Tentativi5").innerHTML ="Hai perso!";
-                    document.getElementById("Tentativi6").innerHTML ="Hai perso!";
-                    document.getElementById("Tentativi7").innerHTML ="Hai perso!";
-                    document.getElementById("Tentativi8").innerHTML ="Hai perso!";
-                    document.getElementById("Tentativi9").innerHTML ="Hai perso!";
-                    document.getElementById("Tentativi10").innerHTML ="Hai perso!";
-                    document.getElementById("OutTempo1").innerHTML =" ";
-                    document.getElementById("OutTempo2").innerHTML =" ";
-                    document.getElementById("OutTempo3").innerHTML =" ";
-                    document.getElementById("OutTempo4").innerHTML =" ";
-                    document.getElementById("OutTempo5").innerHTML =" ";
-                    document.getElementById("OutTempo6").innerHTML =" ";
-                    document.getElementById("OutTempo7").innerHTML =" ";
-                    document.getElementById("OutTempo8").innerHTML =" ";
-                    document.getElementById("OutTempo9").innerHTML =" ";
-                    document.getElementById("OutTempo10").innerHTML =" ";
-            }
-            }
                 casuale = parseInt((Math.random()*4));
-                if (casuale !=2){
-                    click=0;
-                } 
                 if (vecchiocolore != casuale && lives>0 && tentativi<11 ){
                 document.getElementById("scatola1").style.backgroundColor =colori[casuale];
+                if(casuale!=2)[
+                    click=0
+                ]
             }
             if (casuale !=vecchiocolore && casuale==2 && lives>0 && lives!=0 && tentativi<11){
                     Ultverde= Date.now();
@@ -213,11 +187,10 @@
                     if(tentativi==11){
                         return Stop();
                     }
-
-            
-                }
-            vecchiocolore=casuale;
             }
+            vecchiocolore=casuale;
+                }
+            
             function Check(){
             if(casuale==2 && lives>0 && tentativi<11 && click==0 && ferma!=1){
                 Ulttemp=Date.now()-Ultverde;
@@ -252,20 +225,16 @@
                     document.getElementById("OutTempo10").innerHTML=Ulttemp +"ms";
                 }
                 tempi.push(Ulttemp);
-                vecchiotent=tentativi;
                 click++;
                 if (Ulttemp>maggiore){
                     maggiore=Ulttemp;
                 }
-                if (Ulttemp<minore&& Ulttemp!=0){
+                if (Ulttemp<minore){
                     minore=Ulttemp;
                 }
-                if (tentativi){
-                    minore=minore
+
                 }
-                Ulttemp=0;
-                }
-            if(casuale!=2 && tentativi<11 && cont==1 && ferma!=1){
+            if(casuale!=2 && tentativi<11 && cont==1 && ferma!=1 && lives>0){
                 lives=lives-1;
                 document.getElementById("Vite").innerHTML="Vite: "+lives;
                 if(lives==0){
@@ -290,7 +259,6 @@
                     document.getElementById("OutTempo9").innerHTML =" ";
                     document.getElementById("OutTempo10").innerHTML =" ";
             }
-            
             }
             }
     </script>
